@@ -33,10 +33,17 @@
 
                 // 商品一覧の表示関数
                 static showItemList(list) {
+                    for(let i = 0; i <list.length;i++){
+                        console.log("id: "+list[i].id+", name: "+list[i].name+", "+list[i].price+"円, 残り"+list[i].stock+"個")
+                    }
+                    
                     console.log("商品は以下の" + Item.number + "種類です。");
 
                     // 配列の内容を項目毎に出力
                     // 課題4-1. ここにコードを書く
+                    for(let i = 0; i <list.length;i++){
+                        console.log("商品番号: "+list[i].id+", 商品名: "+list[i].name+", 金額: "+list[i].price+", 在庫数: "+list[i].stock)
+                    }
                     console.log(""); // 空行の出力
                 }
                 
@@ -56,6 +63,16 @@
             // 商品テーブルのエレメント抽出
             const itemArea = document.getElementById("item_area");
             itemArea.innerHTML += "<tr><th>商品名</th><th>金額</th><th>在庫数</th><th>購入</th></tr>";
+            itemArea.innerHTML += "<tr><th>商品名</th><th>金額</th><th>在庫数</th><th>購入</th></tr>";
+            itemArea.innerHTML += "<tr><th>緑茶</th><th>140</th><th>5</th><th><button>購入</button></th></tr>";
+            itemArea.innerHTML += "<tr><th>水</th><th>100</th><th>14</th><th><button>購入</button></th></tr>";
+            itemArea.innerHTML += "<tr><th>オレンジジュース</th><th>150</th><th>7</th><th><button>購入</button></th></tr>";
+            itemArea.innerHTML += "<tr><th>リンゴジュース</th><th>150</th><th>9</th><th><button>購入</button></th></tr>";
+            itemArea.innerHTML += "<tr><th>炭酸水</th><th>120</th><th>1</th><th><button>購入</button></th></tr>";
+            itemArea.innerHTML += "<tr><th>サイダー</th><th>160</th><th>3</th><th><button>購入</button></th></tr>";
+            itemArea.innerHTML += "<tr><th>コーヒー</th><th>170</th><th>8</th><th><button>購入</button></th></tr>";
+            itemArea.innerHTML += "<tr><th>紅茶</th><th>140</th><th>6</th><th><button>購入</button></th></tr>";
+
 
             // 配列のオブジェクト作成
             const item_list = new Array(items.length);
@@ -63,6 +80,9 @@
 
             // 課題4-1. ここにコード書く
             // 商品オブジェクトの生成
+            for(let i=0; i<items.length; i++){
+                item_list[i] = new Item(items[i].name,items[i].price,items[i].stock)
+            }
 
             // 課題4-2. ここにコードを書く
             // 商品表の作成
